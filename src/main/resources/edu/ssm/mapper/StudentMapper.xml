@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.ssm.mapper.StudentMapper" >
+
+    <resultMap id="directionMap" type="edu.ssm.model.Direction">
+        <id column="id" property="id"/>
+        <result column="dir_name" property="name"/>
+        <result column="dir_introduction" property="introduction"/>
+        <result column="dir_target" property="target"/>
+        <result column="dir_courseStr" property="courseStr"/>
+        <result column="dir_number" property="number"/>
+        <result column="dir_selNumber" property="selectNumber"/>
+    </resultMap>
+
+    <resultMap id="courseMap" type="edu.ssm.model.Course">
+        <id column="id" property="id"/>
+        <result column="course_name" property="name"/>
+        <result column="course_intro" property="introduction"/>
+    </resultMap>
+
+    <resultMap id="teacherMap" type="edu.ssm.model.Teacher">
+        <id column="id" property="id"/>
+        <result column="teacher_name" property="name"/>
+        <result column="teacher_intro" property="introduction"/>
+    </resultMap>
+
+    <resultMap id="dirCourseMap" type="edu.ssm.model.DirectionCourse">
+        <id column="id" property="id"/>
+        <result column="course_id" property="courseId"/>
+        <result column="direction_id" property="directionId"/>
+    </resultMap>
+
+    <resultMap id="dirTeacherMap" type="edu.ssm.model.TeacherCourse">
+        <id column="id" property="id"/>
+        <result column="course_id" property="courseId"/>
+        <result column="teacher_id" property="teacherId"/>
+    </resultMap>
+
+
+    <update id="pickDir" parameterType="edu.ssm.model.Student">
+        UPDATE student
+        SET direction = #{dirId}
+        WHERE id = #{stuId}
+    </update>
+
+    <update id="updateNum">
+        UPDATE direction
+        SET dir_selNumber = dir_selNumber + 1
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateOldNum">
+        UPDATE direction
+        SET dir_selNumber = dir_selNumber + 1
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectDir" resultMap="directionMap">
+        SELECT dir_name, id
+        FROM direction
+        WHERE dir_major = #{id}
+        AND dir_limit_start &lt;= #{date}
+        AND dir_limit_end &gt;= #{date}
+    </select>
+
+    <select id="selectOneDir" resultMap="directionMap">
+        SELECT *
+        FROM direction
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectCourses" parameterType="java.util.List" resultMap="courseMap">
+        SELECT *
+        FROM course
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="selectCourseIds" resultMap="dirCourseMap">
+        SELECT course_id
+        FROM direction_c_course
+        WHERE direction_id = #{id}
+    </select>
+
+    <select id="selectTeacherIds" resultMap="dirTeacherMap">
+        SELECT teacher_id
+        FROM  course_c_teacher
+        WHERE course_id = #{id}
+    </select>
+
+    <select id="selectTeacher" resultMap="teacherMap">
+        SELECT id, teacher_name, teacher_intro
+        FROM teacher
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectDirNumber" resultMap="directionMap">
+        SELECT dir_number, dir_selNumber
+        FROM direction
+        WHERE id = #{id}
+    </select>
+
+
+    <update id="updatePassword">
+        UPDATE student
+        SET password = #{password}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

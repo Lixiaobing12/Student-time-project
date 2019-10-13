@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.ssm.mapper.DirectionMapper" >
+    <resultMap id="BaseResultMap" type="edu.ssm.model.Direction" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="dir_name" property="name" jdbcType="VARCHAR" />
+        <result column="dir_intro" property="introduction" jdbcType="VARCHAR" />
+        <result column="dir_target" property="target" jdbcType="VARCHAR" />
+        <result column="dir_courses" property="courseStr" jdbcType="VARCHAR" />
+        <result column="dir_number" property="number" jdbcType="INTEGER" />
+        <result column="dir_limit_start" property="dirLimitStart" jdbcType="DATE" />
+        <result column="dir_limit_end" property="dirLimitEnd" jdbcType="DATE" />
+        <association column="dir_major" property="major" select="edu.ssm.mapper.MajorMapper.selectByPrimaryKey" javaType="edu.ssm.model.Major"/>
+    </resultMap>
+    <insert id="insertDirection" parameterType="edu.ssm.model.Direction"  useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into direction (dir_name,dir_intro,dir_target,dir_limit_start,dir_limit_end,dir_major,dir_number) VALUES(#{name},#{introduction},#{target}
+        ,#{dirLimitStart},#{dirLimitEnd},#{majorId},#{number});
+    </insert>
+
+
+    <update id="update">
+        update direction set dir_name=#{name},dir_intro=#{introduction},dir_target=#{target},dir_limit_start=#{dirLimitStart},dir_limit_end=#{dirLimitEnd},dir_major=#{majorId},dir_number=#{number} where id=#{id};
+    </update>
+
+    <insert id="insertDirCCourse" >
+        insert into direction_c_course(direction_id,course_id) VALUES(#{dirId},#{courseId})
+    </insert>
+
+    <delete id="delDirection">
+        delete from direction where id=#{id}
+    </delete>
+
+    <select id="selectAllDirection" resultMap="BaseResultMap">
+        select * from direction
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        select * from direction where id=#{id}
+    </select>
+
+    <select id="getConnectionId" resultType="java.lang.Integer">
+        select course_id from direction_c_course where direction_id=#{id}
+    </select>
+
+    <delete id="delConnectionById">
+        delete from direction_c_course where direction_id=#{id}
+    </delete>
+</mapper>

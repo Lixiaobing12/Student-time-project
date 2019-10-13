@@ -1,0 +1,19 @@
+.containter{
+	margin-top:70px;
+}
+.box{
+	display:flex;
+	flex-wrap:wrap;
+	padding:0 20%;
+	margin-top:10px;
+}
+.title{
+	width:100px;
+	text-align:center;
+}
+.mes{
+	flex:1;
+	word-wrap: break-word;
+	word-break: break-all;
+	font-size:15px;
+}

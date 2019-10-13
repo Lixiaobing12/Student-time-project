@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.ssm.mapper.CourseMapper" >
+        <resultMap id="BaseResultMap" type="edu.ssm.model.Course" >
+            <id column="id" property="id" jdbcType="INTEGER" />
+            <result column="course_name" property="name" jdbcType="VARCHAR" />
+            <result column="course_intro" property="introduction" jdbcType="VARCHAR" />
+            <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
+            <association column="teacher_id" property="teacher" select="edu.ssm.mapper.TeacherMapper.selectByPrimaryKey" javaType="edu.ssm.model.Teacher"/>
+        </resultMap>
+    <insert id="insertCourse" parameterType="edu.ssm.model.Course" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into course (course_name,course_intro) VALUES(#{name},#{introduction});
+    </insert>
+
+    <insert id="insertCT">
+        insert into course_c_teacher (teacher_id,course_id) VALUES(#{teacherId},#{courseId});
+    </insert>
+    <delete id="delCourse">
+        delete from course where id=#{id}
+    </delete>
+
+    <select id="selectAllCourse" resultMap="BaseResultMap">
+        select * from course;
+    </select>
+
+
+</mapper>

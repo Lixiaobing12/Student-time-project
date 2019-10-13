@@ -1,0 +1,181 @@
+
+body{
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+.bg{
+/*	background: url("../image/bg.jpg");
+	background-repeat:no-repeat ;
+	background-size:100%;
+	background-attachment: fixed;*/
+	width: 100%;
+}
+#loginBox{
+	width: 25%;
+	height: 300px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	left: 10%;
+	border-radius: 15px;
+	filter:alpha(Opacity=80);-moz-opacity:0.7;opacity: 0.7;
+	background-color: #fff
+}
+.userBox{
+	width: 80%;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	font-size: 14px;
+	margin: auto;
+	top:60px;
+	border-radius: 5px;
+	display: flex;
+	line-height: 40px;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #DCDCDC
+}
+.passWordBox{
+	width: 80%;
+	height: 40px;
+	position: absolute;
+	font-size: 14px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top:110px;
+	border-radius: 5px;
+	display: flex;
+	line-height: 40px;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #DCDCDC
+}
+.passWordBox input,.userBox input{
+	border: none;
+	height: 25px;
+	width: 75%;
+	background-color: #F5F5DC;
+	margin-right:1px
+}
+.btn{
+	background-color: #2FC151;
+	width: 80%;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom:50px;
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	border-radius: 2px;
+	border:none;
+	line-height:40px;
+}
+.textBox{
+	font-size: 14px;
+	position: absolute;
+	right: 10%;
+	top:160px;
+	color: #00BFFF
+}
+
+
+#registeBox{
+	width: 25%;
+	height: 300px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	left: 10%;
+	border-radius: 15px;
+	filter:alpha(Opacity=80);-moz-opacity:0.7;opacity: 0.7;
+	background-color: #fff;
+	display: none;
+}
+.registeUserBox{
+	width: 80%;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	font-size: 14px;
+	margin: auto;
+	top:40px;
+	border-radius: 5px;
+	display: flex;
+	line-height: 40px;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #DCDCDC
+}
+.registePassWordBox{
+	width: 80%;
+	height: 40px;
+	position: absolute;
+	font-size: 14px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top:90px;
+	border-radius: 5px;
+	display: flex;
+	line-height: 40px;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #DCDCDC
+}
+.registePassWordBox input,.registeClassBox input,.registeUserBox input{
+	border: none;
+	height: 25px;
+	width: 75%;
+	background-color: #F5F5DC;
+	margin-right:1px
+}
+.registeClassBox{
+	width: 80%;
+	height: 40px;
+	position: absolute;
+	font-size: 14px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top:140px;
+	border-radius: 5px;
+	display: flex;
+	line-height: 40px;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #DCDCDC
+}
+.registeTextBox{
+	font-size: 14px;
+	position: absolute;
+	right: 10%;
+	top:190px;
+	color: #00BFFF
+}
+.registeBtn{
+	background-color: #2FC151;
+	width: 80%;
+	height: 40px;
+	line-height:40px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom:35px;
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	border-radius: 2px;
+	border:none;
+}
+

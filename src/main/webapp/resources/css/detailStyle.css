@@ -1,0 +1,61 @@
+body{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.bg{
+    width: 100%;
+}
+.box{
+    width: 40%;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 10%;
+    border-radius: 15px;
+    opacity: 0.7;
+    background-color: #fff;
+    padding:0 2px;
+    display:flex;
+    align-items: center;
+}
+.containter{
+    overflow-y:auto;
+    width: 100%;
+    height: 280px;
+}
+.megbox{
+    display:flex;
+    flex-wrap:wrap;
+}
+.title{
+    width:80px;
+    margin-left:10px;
+    padding-right:10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #6495ED;
+    border-right: 1px solid #6495ED;
+    padding:10px 0;
+}
+.mes{
+    padding:10px 10px;
+    flex:1;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size:15px;
+    margin-right:10px;
+    border-bottom: 1px solid #6495ED
+}
+#courseMes{
+    border-bottom: 0px
+}
+#courseTitle{
+    border-bottom: 0px
+}
+#courseName{
+    border-bottom: 0px
+}
